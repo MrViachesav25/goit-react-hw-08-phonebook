@@ -10,7 +10,7 @@ const createToken = token => {
     instance.defaults.headers['Authorization'] = `Bearer ${token}`;
 }
 
-const deleteToken = token => {
+const deleteToken = () => {
     instance.defaults.headers['Authorization'] = '';
 }
 
@@ -50,8 +50,8 @@ export const upgradeUserThunk = createAsyncThunk(
         const token = state.auth.token;
         
         try {
-            const { data } = await instance.post('/users/current');
             createToken(token);
+            const { data } = await instance.get('/users/current');
             return data;
         }
 
@@ -64,6 +64,9 @@ export const upgradeUserThunk = createAsyncThunk(
 export const logoutUserThunk = createAsyncThunk(
     'auth/logout',
     async (_, thunkApi) => {
+        const state = thunkApi.getState();
+        const token = state.auth.token;
+        createToken(token);
        const { data } = await instance.post('/users/logout');
             deleteToken();
             return data;

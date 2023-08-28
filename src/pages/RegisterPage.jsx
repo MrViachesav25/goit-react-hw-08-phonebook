@@ -2,9 +2,12 @@ import { Button, FormControl, Heading, Icon, Input, InputGroup, InputLeftElement
 import { FiUser, FiMail, FiLock, FiLogIn } from "react-icons/fi";
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUserThunk } from 'redux/thunk';
 import ChiefContainer from 'components/ChiefContainer/ChiefContainer';
+import { selectAuthentificated } from 'redux/selectors';
+import { Navigate } from 'react-router-dom';
+
 
 
 const RegisterPage = () => {
@@ -12,12 +15,15 @@ const RegisterPage = () => {
   const handleClick = () => setShow(!show);
   const dispatch = useDispatch();
 
+  const authentification = useSelector(selectAuthentificated);
+  if (authentification) return <Navigate to='/contacts' />
+
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
     const firstPassword = form.elements.firstPassword.value;
     const secondPassword = form.elements.secondPassword.value;
-    if(firstPassword !== secondPassword) return toast.error('Your password is not correct!')
+    if(firstPassword !== secondPassword) return toast.error('Your password is not correct!');
     
     dispatch(registerUserThunk({
         name: form.elements.userName.value,
@@ -26,6 +32,8 @@ const RegisterPage = () => {
     }));
     form.reset();
     }
+
+
   
   return (
   <ChiefContainer>

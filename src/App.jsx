@@ -1,15 +1,5 @@
-// import ContactForm from './components/ContactForm';
-// import Section from './components/Section';
-// import FilterInput from './components/FilterInput/FilterInput';
-// import ContactsList from './components/ContactsList/ContactsList';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectItems } from 'redux/selectors';
-// import { useEffect, useState } from 'react';
-
-// import { fetchContactThunk } from 'redux/thunk';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-// import Loader from './components/Loader/Loader';
 import { StyledBox } from 'App.styled';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';

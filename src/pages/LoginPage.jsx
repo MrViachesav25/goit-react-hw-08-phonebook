@@ -2,14 +2,19 @@ import { Button, FormControl, Heading, Icon, Input, InputGroup, InputLeftElement
 import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUserThunk} from 'redux/thunk';
 import ChiefContainer from 'components/ChiefContainer/ChiefContainer';
+import { selectAuthentificated } from 'redux/selectors';
+import { Navigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const dispatch = useDispatch();
+  const authentification = useSelector(selectAuthentificated);
+
+  if (authentification) return <Navigate to='/contacts' />
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -23,9 +28,9 @@ const LoginPage = () => {
         email: form.elements.userEmail.value,
         password: form.elements.firstPassword.value
     }));
-    form.reset();
+    form.reset(); 
     }
-  
+
   return (
   <ChiefContainer>
      <form onSubmit={handleSubmit} autoComplete="on" >

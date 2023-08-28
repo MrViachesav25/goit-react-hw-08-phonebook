@@ -1,5 +1,7 @@
+import { addContactThunk, deleteContactThunk, fetchContactThunk } from "./thunk";
+
 const { createSlice } = require("@reduxjs/toolkit");
-const { fetchContactThunk, deleteContactThunk, addContactThunk } = require("./thunk");
+
 
 
 export const initialState = {

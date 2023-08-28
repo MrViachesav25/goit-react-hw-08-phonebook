@@ -4,12 +4,12 @@ import { StyledBox } from 'App.styled';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthentificated, selectToken } from 'redux/selectors';
-import { upgradeUserThunk } from 'redux/thunk';
 import { useEffect } from 'react';
 import NoMenu from 'components/NoMenu/NoMenu';
 import UserMenu from 'components/UserMenu/UserMenu';
 import Loader from 'components/Loader/Loader';
 import { Center, Flex, Link, Stack } from '@chakra-ui/react';
+import { upgradeUserThunk } from 'redux/thunk';
 
 
 

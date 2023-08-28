@@ -3,10 +3,10 @@ import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserThunk} from 'redux/thunk';
 import ChiefContainer from 'components/ChiefContainer/ChiefContainer';
 import { selectAuthentificated } from 'redux/selectors';
 import { Navigate } from 'react-router-dom';
+import { loginUserThunk } from 'redux/thunk';
 
 const LoginPage = () => {
   const [show, setShow] = useState(false);

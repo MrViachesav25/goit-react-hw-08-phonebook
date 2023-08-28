@@ -6,9 +6,9 @@ import {
   ContactNumber,
 } from './ContactsItem.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContactThunk } from 'redux/thunk';
 import { Box, Button, Icon } from '@chakra-ui/react';
 import { FiTrash2 } from 'react-icons/fi';
+import { deleteContactThunk } from 'redux/thunk';
 
 const ContactsItem = ({ id, name, number }) => {
   const dispatch = useDispatch();

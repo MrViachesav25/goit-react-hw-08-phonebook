@@ -73,8 +73,6 @@ export const logoutUserThunk = createAsyncThunk(
     }
 )
 
-// ------------------- Actions with contacts ----------------------
-
 export const fetchContactThunk = createAsyncThunk(
     'contacts/fetchContactThunk', 
     async (_, thunkApi) => {

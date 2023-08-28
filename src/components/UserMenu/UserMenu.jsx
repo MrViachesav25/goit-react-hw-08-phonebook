@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectUser } from 'redux/selectors';
 import { logoutUserThunk } from 'redux/thunk';
 
+
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);

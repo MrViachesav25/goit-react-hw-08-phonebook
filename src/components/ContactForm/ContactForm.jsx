@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactThunk } from 'redux/thunk';
 import { selectVisibleContacts } from 'redux/selectors';
 import { Button, FormControl, Icon, Input, InputGroup, InputLeftElement, Stack } from '@chakra-ui/react';
 import { FiPhone, FiUser } from 'react-icons/fi';
 import ChiefContainer from 'components/ChiefContainer/ChiefContainer';
+import { addContactThunk } from 'redux/thunk';
 
 export default function ContactForm() {
   
